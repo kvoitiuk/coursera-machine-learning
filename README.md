@@ -1,6 +1,6 @@
 # coursera-machine-learning
 
-Coursework part of Stanford Universiy's Machine Learning course on Coursera, taught by Andrew Ng
+*Coursework part of Stanford Universiy's Machine Learning course on Coursera, taught by Andrew Ng.*
 
 ## Assignments:
 - [ ] Linear Regression
