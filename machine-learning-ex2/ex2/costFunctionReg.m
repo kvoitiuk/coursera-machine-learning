@@ -18,13 +18,16 @@ grad = zeros(size(theta));
 %               derivatives of the cost w.r.t. each parameter in theta
 
 
-h = sigmoid(X*theta);
-r = (lambda/(2*m))*theta([2:end])'*theta([2:end]); %regularization 
-J= -(1/m)*(y'*log(h)+(1-y')*log(1-h)) + r;
+rtheta = [0 ; theta([2:end])]; %don't regularize first theta parameter 
 
-r = (lambda/m)*theta; %regularization 
-r(1) = 0; %first theta parameter is unregularized
-grad = (1/m)*X'*(h-y) + r;
+%Regularization parameters
+rcost = (lambda/(2*m))*rtheta'*rtheta; 
+rgrad = (lambda/m)*rtheta; 
+
+
+h = sigmoid(X*theta);
+J = -(1/m)*(y'*log(h)+(1-y')*log(1-h)) + rcost; %Cost
+grad = (1/m)*X'*(h-y) + rgrad; %Gradient
 
 
 
